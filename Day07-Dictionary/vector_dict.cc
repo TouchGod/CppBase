@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -23,6 +24,12 @@ public:
 			return;
 		}
 
+		// string line;
+		// while(std::getline(ifs,line))
+		// string word;
+		// std::istringstream iss(line);
+		
+		// 一个一个单词读，效率较低
 		string word;
 		while (ifs >> word)
 		{
