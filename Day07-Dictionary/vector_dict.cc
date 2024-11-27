@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -73,6 +74,11 @@ public:
 	}
 	void store(const std::string &filename)
 	{
+		// 增加字典序排序功能，lambda表达式实现
+		sort(_dict.begin(), _dict.end(), [](Record &r1, Record &r2) {
+			 return r1._word < r2._word; 
+			 });
+
 		ofstream ofs(filename, std::ios::app);
 		for (auto &w : _dict)
 		{
