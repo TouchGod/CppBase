@@ -16,8 +16,10 @@ class CowString
 
         char operator=(char ch);
 
-        friend 
-        std::ostream & operator<<(std::ostream & os,const CharProxy & rhs);
+        operator char() const;
+
+        // friend 
+        // std::ostream & operator<<(std::ostream & os,const CharProxy & rhs);
     private:
         CowString & _self;
         size_t _idx;
@@ -38,7 +40,7 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const CowString &rhs);
     // 嵌套类对象访问外层类私有成员，利用友元
-    friend std::ostream & operator<<(std::ostream & os,const CowString::CharProxy & rhs);
+    // friend std::ostream & operator<<(std::ostream & os,const CowString::CharProxy & rhs);
 
 private:
     char *malloc(const char *pstr = nullptr);

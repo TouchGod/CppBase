@@ -182,16 +182,21 @@ char CowString::CharProxy::operator=(char ch)
     }
 }
 
-// cout << str[0] << endl;
-std::ostream &operator<<(std::ostream &os, const CowString::CharProxy &rhs)
+// 对 “cout << str[0] << endl;” 的处理
+// std::ostream &operator<<(std::ostream &os, const CowString::CharProxy &rhs)
+// {
+//     if(rhs._idx < rhs._self.size()) 
+//     {   
+//         os << rhs._self._pstr[rhs._idx];
+//     }else{
+//         os << "out of range" << std::endl;
+//     }
+//     return os;
+// }
+
+CowString::CharProxy::operator char() const
 {
-    if(rhs._idx < rhs._self.size()) 
-    {   
-        os << rhs._self._pstr[rhs._idx];
-    }else{
-        os << "out of range" << std::endl;
-    }
-    return os;
+    return _self._pstr[_idx];
 }
 
 
